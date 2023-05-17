@@ -1,1 +1,1 @@
-# AhorcadoJavaScrpit
+# JS-Juego adivinar la palara

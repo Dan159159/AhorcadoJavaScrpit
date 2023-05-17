@@ -1,4 +1,5 @@
- const wordList = [{
+// Lista de palabra y su pista
+const wordList = [{
          palabra: "futbol",
          pista: "Deporte con balón"
      },

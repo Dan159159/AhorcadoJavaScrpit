@@ -1,18 +1,19 @@
+// atributos htrtml
 const inputs = document.querySelector(".inputs"),
     resetBtn = document.querySelector(".reset-btn"),
     hint = document.querySelector(".hint span"),
     wrongLetter = document.querySelector(".wrongLetter span"),
     intentos = document.querySelector(".intentos span"),
     typingInput = document.querySelector(".typing-input");
-
+// variable globales
 let word, maxIntentos, corrects = [],
     incorrects = [];
 
 function randomWord() {
     // Get randow Objeto
     let ranObj = wordList[Math.floor(Math.random() * wordList.length)];
-    word = ranObj.palabra; // Getting word
-    //let hint = ranObj.pista; //Getting hint
+    word = ranObj.palabra; // Getting palabra
+    //let hint = ranObj.pista; //Getting pista
     maxIntentos = 6;
     corrects = [];
     incorrects = [];
@@ -29,7 +30,7 @@ function randomWord() {
     inputs.innerHTML = html;
 }
 randomWord();
-
+// Iniciar
 function initGame(e) {
     let key = e.target.value;
     if (key.match(/^[A-Za-z]+$/) && !incorrects.includes(` ${key}`) && !corrects.includes(` ${key}`)) {
@@ -50,7 +51,7 @@ function initGame(e) {
         intentos.innerText = maxIntentos;
     }
     typingInput.value = "";
-
+    // GAME / GAME OVER
     setTimeout(() => {
         if (corrects.length === word.length) {
             alert("VICTORY!!!");
@@ -64,7 +65,7 @@ function initGame(e) {
         }
     });
 }
-
+// addd Event
 resetBtn.addEventListener("click", randomWord);
 typingInput.addEventListener("input", initGame);
 inputs.addEventListener("keydown", () => typingInput.focus());
